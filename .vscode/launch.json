@@ -14,7 +14,8 @@
             "args": [
                 "use",
                 "aks",
-                "-h",
+                "--username",
+                "richard"
             ]
         }
     ]

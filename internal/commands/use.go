@@ -22,6 +22,7 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
+	"github.com/spf13/viper"
 
 	"github.com/fidelity/kconnect/pkg/provider/cluster"
 	"github.com/fidelity/kconnect/pkg/provider/identity"
@@ -45,7 +46,9 @@ var useCmd = &cobra.Command{
 		}
 
 		fmt.Printf("using provider %s\n", selectedProvider.Name())
-		cmd.Flags().AddFlagSet(selectedProvider.Flags())
+		providerFlags := selectedProvider.Flags()
+		cmd.Flags().AddFlagSet(providerFlags)
+		viper.BindPFlags(providerFlags)
 		return nil
 	},
 	PreRunE: func(cmd *cobra.Command, args []string) error {

@@ -21,10 +21,11 @@ func (p *AKSClusterProvider) Flags() *pflag.FlagSet {
 	set := &pflag.FlagSet{}
 
 	set.AddFlag(&pflag.Flag{
-		Name:      "resource-group",
-		Shorthand: "r",
-		Usage:     "The Azure resource group  to use",
-		DefValue:  "",
+		Name:        "resource-group",
+		Shorthand:   "r",
+		Usage:       "The Azure resource group  to use",
+		DefValue:    "",
+		NoOptDefVal: "",
 	})
 
 	return set
