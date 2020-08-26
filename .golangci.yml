@@ -26,3 +26,5 @@ linters:
     - whitespace
     - godot
     - godox
+    - gofumpt
+    - gci
